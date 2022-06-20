@@ -1,3 +1,4 @@
+import { InjectedAccount } from "@polkadot/extension-inject/types";
 import { WalletError } from '.';
 
 export type SubscriptionFn = (
@@ -11,7 +12,7 @@ export interface WalletLogoProps {
   alt: string;
 }
 
-export interface WalletAccount {
+export interface WalletAccount extends InjectedAccount {
   address: string;
   source: string;
   name?: string;
