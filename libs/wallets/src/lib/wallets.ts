@@ -16,7 +16,7 @@ const supportedWallets = [
   new PolkadotjsWallet(),
 ]
 
-export function getSupportedWallets(): Wallet[] {
+export function getWallets(): Wallet[] {
   return supportedWallets
 }
 
@@ -26,7 +26,7 @@ export function getAllWallets() {
   )
 
   const unknownWallets = Object.keys(
-    (window as Window & InjectedWindow)?.injectedWeb3,
+    (window as Window & InjectedWindow)?.injectedWeb3 ?? {},
   ).filter((name) => !supportedWalletsNames.includes(name))
     .map(wallet => new BaseDotsamaWallet(wallet))
 
